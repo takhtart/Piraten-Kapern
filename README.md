@@ -1,6 +1,6 @@
 # A1 - Piraten Karpen
 
-  * Author: < Tarnveer Takhtar >
+  * Author: Tarnveer Takhtar
   * Email: <takhtart@mcmaster.ca>
 
 ## Build and Execution
