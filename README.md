@@ -1,7 +1,7 @@
 # A1 - Piraten Karpen
 
-  * Author: < You name here >
-  * Email: < Your email here >
+  * Author: <Tarnveer Takhtar>
+  * Email: <takhtart@mcmaster.ca>
 
 ## Build and Execution
 
