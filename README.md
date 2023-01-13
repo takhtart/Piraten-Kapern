@@ -23,17 +23,18 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
  * Status: 
    * Pending (P), Started (S), Blocked (B), Done (D)
  * Definition of Done (DoD):
-   * < Your DoD goes here >
+   * < Standalone Feature Is Completed, Tested, And Implemented Within the Program >
 
 ### Backlog 
 
 | MVP? | Id  | Feature  | Status  |  Started  | Delivered |
 | :-:  |:-:  |---       | :-:     | :-:       | :-:       |
-| x   | F01 | Roll a dice |  D | 01/11/23 | 01/11/23 |
-| x   | F02 | Roll eight dices  |  B (F01) |   |
-| x   | F03 | Select how many games as command-line arg.  |  P  |   |
-| x   | F04 | end of game with three cranes | P | |
-| x   | F05 | Player keeping random dice at their turn | B (F02) | | 
-| x   | F06 | Score points: 3-of-a-kind | B (F04) | | 
+| x   | F01 | Roll a dice | D | 01/11/23 | 01/11/23 |
+| x   | F02 | Roll eight dices  | D | 01/13/23 | 01/13/23 |
+| x   | F03 | Simulate 42 games | P |   |
+| x   | F04 | Score Points (Multiply # of Diamonds and Coins By 100) | P | |  
+| x   | F05 | Player keeping random dice, Re-rolling until obtaining three skulls to end the turn | P | | 
+| x   | F06 | Create 2 Players, Playing With The Same Strategy | P | | 
+| x   | F07 | Print % Of Wins of Each Player | P | | 
 | ... | ... | ... |
 
