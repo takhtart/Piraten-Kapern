@@ -35,7 +35,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F04 | Score Points (Multiply # of Diamonds and Coins By 100) | D | 01/13/23 | 01/16/23 |
 | x   | F05 | Player keeping random dice, Re-rolling until obtaining three skulls to end the turn | D | 01/13/23 | 01/16/23 |
 | x   | F06 | Create 2 Players, Playing With The Same Strategy | D | 01/13/23 | 01/16/23 |
-| x   | F07 | Print % Of Wins of Each Player | P | 01/16/23 |
+| x   | F07 | Print % Of Wins of Each Player | D | 01/16/23 |  01/16/23 |
 | x   | F08 | Game Ends When A Player Reaches Or Exceeds 6000 Points | D | 01/16/23 | 01/16/23 |
 | ... | ... | ... |
 
