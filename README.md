@@ -32,9 +32,9 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F01 | Roll a dice | D | 01/11/23 | 01/11/23 |
 | x   | F02 | Roll eight dices  | D | 01/13/23 | 01/13/23 |
 | x   | F03 | Simulate 42 games | B (F08) |   |
-| x   | F04 | Score Points (Multiply # of Diamonds and Coins By 100) | B (F05) | |  
-| x   | F05 | Player keeping random dice, Re-rolling until obtaining three skulls to end the turn | B (F06) | | 
-| x   | F06 | Create 2 Players, Playing With The Same Strategy | P | | 
+| x   | F04 | Score Points (Multiply # of Diamonds and Coins By 100) | D | 01/13/23 | 01/16/23 |
+| x   | F05 | Player keeping random dice, Re-rolling until obtaining three skulls to end the turn | D | 01/13/23 | 01/16/23 |
+| x   | F06 | Create 2 Players, Playing With The Same Strategy | D | 01/13/23 | 01/16/23 |
 | x   | F07 | Print % Of Wins of Each Player | B (F03) | | 
 | x   | F08 | Game Ends When A Player Reaches Or Exceeds 6000 Points | P | | 
 | ... | ... | ... |
