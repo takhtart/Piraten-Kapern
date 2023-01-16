@@ -19,7 +19,7 @@ Moved Main Roll Implementation of Roll From PiratenKarpen.java to Player.java
 Added Get Score, Skulls, And Roll Functions in Player.java
 Began ReRoll Implementation in Player.Java
 
-#Jan 13, 2023
+#Jan 16, 2023
 Finished ReRoll Implementation (Tested And Working) - Full Turn Can Now Be Simulated
 Implemented 2 Players Within PiratenKarpen.java
 Removed Unnecessary Imports From PiratenKarpen.java and formatted output
