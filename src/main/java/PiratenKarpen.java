@@ -1,8 +1,4 @@
-import pk.Dice;
-import pk.Faces;
 import pk.Player;
-
-import java.util.ArrayList;
 
 public class PiratenKarpen {
 
@@ -25,7 +21,7 @@ public class PiratenKarpen {
         System.out.println("Player 1 ReRolling!");
         Player1.ReRoll();
         System.out.println("Player 1 Final Roll: " + Player1.getroll());
-        System.out.println("Player 1 Score: " + Player1.getscore());
+        System.out.println("Player 1 Score: " + Player1.getscore() + "\n");
 
         //Player 2 Turn
         System.out.println("Player 2: I'm rolling dice!");
@@ -34,7 +30,7 @@ public class PiratenKarpen {
         System.out.println("Player 2 ReRolling!");
         Player2.ReRoll();
         System.out.println("Player 2 Final Roll: " + Player2.getroll());
-        System.out.println("Player 2 Score: " + Player2.getscore());
+        System.out.println("Player 2 Score: " + Player2.getscore() + "\n");
 
 
     }
