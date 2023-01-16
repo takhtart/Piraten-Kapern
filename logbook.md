@@ -29,3 +29,5 @@ Begin Implemetation of Game Winning Trigger (Game ends with one of the players s
 Fixed Score Resetting In Player.Java When Game Runs
 Implemented Win Counter Variables For Both Plyaers
 Simulated 1 Game
+Simulated 42 Games
+Implemented Percentage Of Wins
