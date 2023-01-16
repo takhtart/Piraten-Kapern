@@ -20,7 +20,12 @@ Added Get Score, Skulls, And Roll Functions in Player.java
 Began ReRoll Implementation in Player.Java
 
 #Jan 16, 2023
+
 Finished ReRoll Implementation (Tested And Working) - Full Turn Can Now Be Simulated
 Implemented 2 Players Within PiratenKarpen.java
 Removed Unnecessary Imports From PiratenKarpen.java and formatted output
 Set Score, Skull and CurrentRoll Variables To Private so they cannot be modified outside the Player Package, Minor Formatting To End Turn Statement (Player.java)
+Begin Implemetation of Game Winning Trigger (Game ends with one of the players scores 6000 or more points)
+Fixed Score Resetting In Player.Java When Game Runs
+Implemented Win Counter Variables For Both Plyaers
+Simulated 1 Game
