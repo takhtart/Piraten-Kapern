@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Player {
-    int Score = 0;
-    int Skulls = 0;
-    ArrayList<String> CurrentRoll = new ArrayList<String>();
+    private int Score = 0;
+    private int Skulls = 0;
+    private ArrayList<String> CurrentRoll = new ArrayList<String>();
     
     public int getscore(){
         return Score;
@@ -42,7 +42,7 @@ public class Player {
 
         while (Complete == false){
             if (Skulls >= 3){
-                System.out.println("3 Or More Skulls Have Been Rolled. Ending Turn.");
+                System.out.println("3 Or More Skulls Have Been Rolled. Ending Turn.\n");
                 int Diamonds = 0;
                 int Gold = 0;
     
