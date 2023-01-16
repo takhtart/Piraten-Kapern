@@ -66,9 +66,9 @@ public class PiratenKarpen {
         }
 
         //Debug Checks Number Of Games Played
-        System.out.println("Number Of Games Played In Total: " + GamesPlayed);
+        //System.out.println("Number Of Games Played In Total: " + GamesPlayed);
         System.out.println("Player 1 Games Won: " + P1Wins);
-        System.out.println("Player 2 Games Won: " + P2Wins);
+        System.out.println("Player 2 Games Won: " + P2Wins + "\n");
 
         //Print % Of Wins
         float P1WinPercentage = (P1Wins/GamesPlayed)*100;
