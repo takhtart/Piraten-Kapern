@@ -21,3 +21,4 @@ Began ReRoll Implementation in Player.Java
 
 #Jan 13, 2023
 Finished ReRoll Implementation (Tested And Working) - Full Turn Can Now Be Simulated
+Implemented 2 Players Within PiratenKarpen.java
