@@ -22,3 +22,5 @@ Began ReRoll Implementation in Player.Java
 #Jan 13, 2023
 Finished ReRoll Implementation (Tested And Working) - Full Turn Can Now Be Simulated
 Implemented 2 Players Within PiratenKarpen.java
+Removed Unnecessary Imports From PiratenKarpen.java and formatted output
+Set Score, Skull and CurrentRoll Variables To Private so they cannot be modified outside the Player Package, Minor Formatting To End Turn Statement (Player.java)
