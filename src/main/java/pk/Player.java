@@ -55,7 +55,7 @@ public class Player {
                     }
                 }
 
-                Score = Diamonds*100 + Gold*100;
+                Score += Diamonds*100 + Gold*100;
                 Skulls = 0;
                 Complete = true;
             }
