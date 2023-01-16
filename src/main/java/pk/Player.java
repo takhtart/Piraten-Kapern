@@ -61,6 +61,7 @@ public class Player {
             }
     
             else {
+                System.out.println("Rerolling!");
                 Random ReRollRand = new Random();
                 int Upperbound = ReRoll.size() - Skulls;
                 int DieSelect = ReRollRand.nextInt(Upperbound);
@@ -73,7 +74,7 @@ public class Player {
                     ReRoll.add("SKULL");
                 }
 
-                System.out.println(ReRoll);
+                System.out.println(ReRoll + "\n");
                 CurrentRoll = ReRoll;
                 
             }
