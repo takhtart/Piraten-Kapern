@@ -31,3 +31,4 @@ Implemented Win Counter Variables For Both Plyaers
 Simulated 1 Game
 Simulated 42 Games
 Implemented Percentage Of Wins
+Implemented a continuation condition in the event both players tie reaching 6000 points each (also added a debug statement that prints amount of ties)
