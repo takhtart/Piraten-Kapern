@@ -9,6 +9,7 @@ public class PiratenKarpen {
 
         int P1Wins = 0;
         int P2Wins = 0;
+        int Ties = 0;
 
         System.out.println("Welcome to Piraten Karpen Simulator!\n");
 
@@ -58,7 +59,7 @@ public class PiratenKarpen {
                         GamesPlayed += 1;
                         GameOver = true;
                     }
-                    else{
+                    else if (Player2.getscore() >= Player1.getscore()) {
                         P2Wins += 1;
                         System.out.println("Player 2 Wins!");
                         System.out.println("-----------------------Final Scores-----------------------");
@@ -67,6 +68,11 @@ public class PiratenKarpen {
                         System.out.println("----------------------------------------------------------\n");
                         GamesPlayed += 1;
                         GameOver = true;
+                    }
+                    else {
+                        System.out.println("Tied! Playing Another Round");
+                        Ties += 1;
+                        
                     } 
                 }
                 
@@ -78,7 +84,8 @@ public class PiratenKarpen {
         //Debug Checks Number Of Games Played
         //System.out.println("Number Of Games Played In Total: " + GamesPlayed);
         System.out.println("Player 1 Games Won: " + P1Wins);
-        System.out.println("Player 2 Games Won: " + P2Wins + "\n");
+        System.out.println("Player 2 Games Won: " + P2Wins );
+        System.out.println("Ties: " + Ties + "\n");
 
         //Print % Of Wins
         float P1WinPercentage = (P1Wins/GamesPlayed)*100;
