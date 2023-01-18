@@ -48,7 +48,7 @@ public class PiratenKarpen {
 
                  //Checks Which Player Wins The Game
                 if (Player1.getscore() >= 6000 || Player2.getscore() >= 6000){
-                    if (Player1.getscore() >= Player2.getscore()){
+                    if (Player1.getscore() > Player2.getscore()){
                         P1Wins += 1;
                         System.out.println("Player 1 Wins!");
                         System.out.println("-----------------------Final Scores-----------------------");
@@ -59,7 +59,7 @@ public class PiratenKarpen {
                         GamesPlayed += 1;
                         GameOver = true;
                     }
-                    else if (Player2.getscore() >= Player1.getscore()) {
+                    else if (Player2.getscore() > Player1.getscore()) {
                         P2Wins += 1;
                         System.out.println("Player 2 Wins!");
                         System.out.println("-----------------------Final Scores-----------------------");
