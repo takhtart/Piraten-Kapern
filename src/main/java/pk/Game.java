@@ -2,11 +2,12 @@ package pk;
 
 public class Game {
 
-    float GamesPlayed = 0;
-    int P1Wins = 0;
-    int P2Wins = 0;
-    int Ties = 0;
-    boolean GameOver = false;
+    private float GamesPlayed = 0;
+    private int P1Wins = 0;
+    private int P2Wins = 0;
+    private int Ties = 0;
+    private boolean GameOver = false;
+    
     Player Player1 = new Player();
     Player Player2 = new Player();
 

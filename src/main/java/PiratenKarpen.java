@@ -5,6 +5,8 @@ public class PiratenKarpen {
     public static void main(String[] args) {
 
         int NumberOfGames = 42;
+
+        //Initializes Tracker Variables
         float GamesPlayed = 0;
         int P1Wins = 0;
         int P2Wins = 0;
@@ -14,8 +16,13 @@ public class PiratenKarpen {
 
         
         for (int i = 0; i < NumberOfGames; i++) {
+            //Creates A New Game Instance
             Game game = new Game();
+
+            //Starts Game
             game.PlayGame();
+
+            //Updates the # of games played, Player Wins, and Ties Encountered
             GamesPlayed += game.getGamesPlayed();
             P1Wins += game.getP1Wins();
             P2Wins += game.getP2Wins();
@@ -27,7 +34,7 @@ public class PiratenKarpen {
             //System.out.println("Number Of Games Played In Total: " + GamesPlayed);
             System.out.println("Player 1 Games Won: " + P1Wins);
             System.out.println("Player 2 Games Won: " + P2Wins );
-            System.out.println("Ties: " + Ties + "\n");
+            System.out.println("Ties Encountered: " + Ties + "\n");
            
             //Print % Of Wins
             float P1WinPercentage = (P1Wins/GamesPlayed)*100;

@@ -63,12 +63,20 @@ public class Player {
             else {
                 //Current ReRoll Strategy
                 System.out.println("Rerolling!");
+
+                //Initializes Random
                 Random ReRollRand = new Random();
+                //Determines Upperbound of Availible Dice
                 int Upperbound = ReRoll.size() - Skulls;
+                //Randomly Determines Which Die to Reroll
                 int DieSelect = ReRollRand.nextInt(Upperbound);
+                //Creates New Die And Generates Roll
                 Dice myDice2 = new Dice();
                 String RerollValue = myDice2.roll().toString();
+                //Updates New Die Roll Replacing the Die Determined by DieSelect
                 ReRoll.set(DieSelect, RerollValue);
+
+                //Checks if Reroll is Skull and moves it to the back of the array
                 if (RerollValue == "SKULL"){
                     Skulls += 1;
                     ReRoll.remove(DieSelect);

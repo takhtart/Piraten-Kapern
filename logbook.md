@@ -37,3 +37,4 @@ Implemented a continuation condition in the event both players tie reaching 6000
 
 #Jan 19, 2023
 Moved Game elements to seperate Game.java file
+Added Comments, Privatized variables in Game.java
