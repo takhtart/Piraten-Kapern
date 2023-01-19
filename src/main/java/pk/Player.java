@@ -61,6 +61,7 @@ public class Player {
             }
     
             else {
+                //Current ReRoll Strategy
                 System.out.println("Rerolling!");
                 Random ReRollRand = new Random();
                 int Upperbound = ReRoll.size() - Skulls;

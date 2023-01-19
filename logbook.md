@@ -30,5 +30,10 @@ Fixed Score Resetting In Player.Java When Game Runs
 Implemented Win Counter Variables For Both Plyaers
 Simulated 1 Game
 Simulated 42 Games
+
+#Jan 18, 2023
 Implemented Percentage Of Wins
 Implemented a continuation condition in the event both players tie reaching 6000 points each (also added a debug statement that prints amount of ties)
+
+#Jan 19, 2023
+Moved Game elements to seperate Game.java file
