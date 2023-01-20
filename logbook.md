@@ -38,3 +38,9 @@ Implemented a continuation condition in the event both players tie reaching 6000
 #Jan 19, 2023
 Moved Game elements to seperate Game.java file
 Added Comments, Privatized variables in Game.java
+
+#Jan 20, 2023
+Added log4j to dependancies
+Removed tracker variables from main class (now directly pulled from game class)
+Created Strategy Class
+Moved Random Strategy to Strategy.java

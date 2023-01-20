@@ -1,51 +1,42 @@
 import pk.Game;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class PiratenKarpen {
-    
+    private static final Logger logger = LogManager.getLogger(PiratenKarpen.class);
+
     public static void main(String[] args) {
 
+        //Number of Games That Will Be Played
         int NumberOfGames = 42;
 
-        //Initializes Tracker Variables
-        float GamesPlayed = 0;
-        int P1Wins = 0;
-        int P2Wins = 0;
-        int Ties = 0;
+        //Creates A New Game Instance
+        Game game = new Game();
 
-        System.out.println("Welcome to Piraten Karpen Simulator!\n");
 
-        
+        //For Loop That Simulates Multiple Games
         for (int i = 0; i < NumberOfGames; i++) {
-            //Creates A New Game Instance
-            Game game = new Game();
-
             //Starts Game
             game.PlayGame();
-
-            //Updates the # of games played, Player Wins, and Ties Encountered
-            GamesPlayed += game.getGamesPlayed();
-            P1Wins += game.getP1Wins();
-            P2Wins += game.getP2Wins();
-            Ties += game.getTies();
-            
-           }
-
-            //Debug Checks Number Of Games Played
-            //System.out.println("Number Of Games Played In Total: " + GamesPlayed);
-            System.out.println("Player 1 Games Won: " + P1Wins);
-            System.out.println("Player 2 Games Won: " + P2Wins );
-            System.out.println("Ties Encountered: " + Ties + "\n");
-           
-            //Print % Of Wins
-            float P1WinPercentage = (P1Wins/GamesPlayed)*100;
-            float P2WinPercentage = (P2Wins/GamesPlayed)*100;
-
-            System.out.println("-----------------------Win %--------------------------");
-            System.out.printf("Player 1 Win Percentage: %.2f\n", P1WinPercentage);
-            System.out.printf("Player 2 Win Percentage: %.2f\n", P2WinPercentage);
-            System.out.println("------------------------------------------------------\n");
-
         }
+        
+        //Debug Checks Number Of Games Played
+        logger.debug("Number Of Games Played In Total: " + game.getGamesPlayed());
+        logger.debug("Player 1 Games Won: " + game.getP1Wins());
+        logger.debug("Player 2 Games Won: " + game.getP2Wins());
+        logger.debug("Ties Encountered: " + game.getTies() + "\n");
+        
+        //% Of Wins Calculation
+        float P1WinPercentage = (game.getP1Wins()/game.getGamesPlayed())*100;
+        float P2WinPercentage = (game.getP2Wins()/game.getGamesPlayed())*100;
+
+        //Print % of Wins
+        System.out.println("-----------------------Win %--------------------------");
+        System.out.printf("Player 1 Win Percentage: %.2f\n", P1WinPercentage);
+        System.out.printf("Player 2 Win Percentage: %.2f\n", P2WinPercentage);
+        System.out.println("------------------------------------------------------\n");
+
+    }
 
         
         

@@ -6,10 +6,8 @@ public class Game {
     private int P1Wins = 0;
     private int P2Wins = 0;
     private int Ties = 0;
-    private boolean GameOver = false;
     
-    Player Player1 = new Player();
-    Player Player2 = new Player();
+    
 
     public int getP1Wins(){
         return P1Wins;
@@ -26,8 +24,11 @@ public class Game {
 
 
     public void PlayGame(){
+        boolean GameOver = false;
 
         System.out.println("Welcome to Piraten Karpen Simulator!\n");
+        Player Player1 = new Player();
+        Player Player2 = new Player();
 
         while (GameOver == false){
             //Player 1 Turn

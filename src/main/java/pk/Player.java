@@ -1,11 +1,10 @@
 package pk;
 import java.util.ArrayList;
-import java.util.Random;
-
 public class Player {
     private int Score = 0;
     private int Skulls = 0;
     private ArrayList<String> CurrentRoll = new ArrayList<String>();
+    Strategy Strategy = new Strategy();
     
     public int getscore(){
         return Score;
@@ -64,12 +63,8 @@ public class Player {
                 //Current ReRoll Strategy
                 System.out.println("Rerolling!");
 
-                //Initializes Random
-                Random ReRollRand = new Random();
-                //Determines Upperbound of Availible Dice
-                int Upperbound = ReRoll.size() - Skulls;
-                //Randomly Determines Which Die to Reroll
-                int DieSelect = ReRollRand.nextInt(Upperbound);
+                int DieSelect = Strategy.Random(ReRoll, Skulls);
+
                 //Creates New Die And Generates Roll
                 Dice myDice2 = new Dice();
                 String RerollValue = myDice2.roll().toString();
