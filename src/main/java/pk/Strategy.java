@@ -8,12 +8,24 @@ import org.apache.logging.log4j.Logger;
 public class Strategy {
     private static final Logger logger = LogManager.getLogger(Strategy.class);
     public int Random(ArrayList<String> ReRoll, int Skulls){
+        int DieSelect = 0;
+        if (Skulls == 2){
+            Random RiskSkull = new Random();
+            int DoNotRoll = RiskSkull.nextInt(2);
+
+            if (DoNotRoll == 1){
+                DieSelect = 10;
+                return DieSelect;
+            }
+            
+        }
          //Initializes Random
          Random ReRollRand = new Random();
          //Determines Upperbound of Available Dice
          int Upperbound = ReRoll.size() - Skulls;
          //Randomly Determines Which Die to Reroll
-         int DieSelect = ReRollRand.nextInt(Upperbound);
+         DieSelect = ReRollRand.nextInt(Upperbound);
+
          return DieSelect;
     }
 
@@ -48,6 +60,11 @@ public class Strategy {
         if (Rollable == 8){
             DieSelect = 10;
         }
+
+        else if (Rollable <= 6){
+            DieSelect = 10;
+        }
+
 
         //If Full Chest Is Not Achievable And There Are More Than 2 Faces Present in Combo (Trys To Reach A Combo That Consists of a Max Of 2 Faces)
         else if (Highest + Lowest != Rollable){
@@ -147,19 +164,19 @@ public class Strategy {
 
         //Counts Dice Values In Roll
         for (String item :Roll) {
-            if (item == "DIAMOND"){
+            if (item.equals("DIAMOND")){
                 Diamonds += 1;
             }
-            else if (item == "GOLD"){
+            else if (item.equals("GOLD")){
                 Gold += 1;
             }
-            else if (item == "MONKEY"){
+            else if (item.equals("MONKEY") ){
                 Monkey += 1;
             }
-            else if (item == "PARROT"){
+            else if (item.equals("PARROT")){
                 Parrot += 1;
             }
-            else if (item == "SABER"){
+            else if (item.equals("SABER")){
                 Saber += 1;
             }
         }
@@ -184,6 +201,12 @@ public class Strategy {
         //Counts Total Amount Of Valuable Dice Using Combo Array (To Check For Full Chest Bonus)
         for (int i = 0; i < Combo.length; i++) {
             TotalDice += Combo[i];
+        }
+
+        //Returns Score Of Zero if 3 or More Skulls Are Present
+        if (TotalDice <= 5){
+            Score = 0;
+            return Score;
         }
 
         //Calculates Scores
@@ -213,7 +236,7 @@ public class Strategy {
             }
         }
 
-        //Total Chest Bonus
+        //Full Chest Bonus
         if (TotalDice == 8){
             Score += 500;
         }

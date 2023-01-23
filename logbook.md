@@ -57,3 +57,7 @@ Updated MaxCombos Strategy To Prioritize Full Chest First
 #Jan 23, 2023
 Finished MaxCombos Strategy
 Added Strategy Setter Function In Player Class (Default Strategy Is Random Unless SetStrat Function Is Called)
+Added Command Line Arguments
+Made All String Comparisons to use .equals() rather than ==
+Updated Scoring System To Give 0 Points If 3 Skulls Are Rolled
+Updated Logic Of Currently Implemented Strategies to Accomodate The Risk Of Rolling 3 Skulls

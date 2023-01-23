@@ -13,14 +13,14 @@ public class Player {
     private int Score = 0;
     private int Skulls = 0;
     private ArrayList<String> CurrentRoll = new ArrayList<String>();
-    private String ReRollStrat = "random";
+    private String ReRollStrat = "combo";
 
     //Initializes Strategy Class
     Strategy Strategy = new Strategy();
 
     //Sets Strategy If Incorrect Strategy Is Inputted, Will Default To Constructor Default
     public void SetStrat(String Strat){
-        if (Strat == "random" || Strat == "combo"){
+        if (Strat.equals("random") || Strat.equals("combo")){
             ReRollStrat = Strat;
             System.out.println("Strategy Has Been Set To: " + ReRollStrat);
         }
@@ -39,6 +39,9 @@ public class Player {
     public int getskulls(){
         return Skulls;
     }
+    public String getStrat(){
+        return ReRollStrat;
+    }
 
     //Initial Roll Function
     public void Roll(){
@@ -52,9 +55,10 @@ public class Player {
             Roll.add(FaceValue);
 
             //Keeps Track Of Skulls
-            if (FaceValue == "SKULL"){
+            if (FaceValue.equals("SKULL")){
                 Skulls += 1;
             }
+
         }
 
         //Sorts and Sets The Initial Roll As The Current Roll
@@ -76,8 +80,10 @@ public class Player {
 
                 if (Skulls >= 3){
                     System.out.println("3 Or More Skulls Have Been Rolled. Ending Turn.\n");
+                    logger.debug("Skulls Ending Turn");
                 }
                 else{
+                    logger.debug("Ending Turn");
                     System.out.println("Player Has Decided To End Their Turn\n");
                 }
                 
@@ -103,10 +109,12 @@ public class Player {
                 int DieSelect = 0;
 
                 //If Statements To Check Which Strategy The Player Should Use
-                if (ReRollStrat == "combo"){
+                if (ReRollStrat.equals("combo")){
+                    logger.debug("Combo Strat Used");
                     DieSelect = Strategy.MaxCombos(ReRoll, Skulls);
                 }
-                else if (ReRollStrat == "random"){
+                else if (ReRollStrat.equals("random")){
+                    logger.debug("Random Strat Used");
                     DieSelect = Strategy.Random(ReRoll, Skulls);
                 }
 
@@ -122,7 +130,7 @@ public class Player {
                     //Updates New Die Roll Replacing the Die Determined by DieSelect
                     ReRoll.set(DieSelect, RerollValue);
                     //Checks if Reroll is Skull and moves it to the back of the array
-                    if (RerollValue == "SKULL"){
+                    if (RerollValue.equals("SKULL")){
                         Skulls += 1;
                     }
                 }

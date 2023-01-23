@@ -1,6 +1,9 @@
 package pk;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 public class Game {
+
+    private static final Logger logger = LogManager.getLogger(Game.class);
 
     //Initializes Player Tracking Variables
     private float GamesPlayed = 0;
@@ -26,22 +29,25 @@ public class Game {
 
 
     //Simulates Game
-    public void PlayGame(int NumberOfGames,String Player1Strat, String Player2Strat){
+    public void PlayGame(String Player1Strat, String Player2Strat,String NumberOfGames){
 
         //For Loop That Simulates Multiple Games
-        for (int i = 0; i < NumberOfGames; i++) {
+        for (int i = 0; i < Integer.valueOf(NumberOfGames); i++) {
             
         
             boolean GameOver = false;
 
             System.out.println("Welcome to Piraten Karpen Simulator!\n");
             Player Player1 = new Player();
-            Player1.SetStrat(Player1Strat);
             Player Player2 = new Player();
+
+            Player1.SetStrat(Player1Strat);
             Player2.SetStrat(Player2Strat);
+
 
             while (GameOver == false){
                 //Player 1 Turn
+                logger.debug("Player1 Turn");
                 System.out.println("-----------------------Player 1-----------------------");
                 System.out.println("Player 1: I'm rolling dice!");
                 Player1.Roll();
@@ -52,6 +58,7 @@ public class Game {
                 System.out.println("------------------------------------------------------\n");
 
                 //Player 2 Turn
+                logger.debug("Player2 Turn");
                 System.out.println("-----------------------Player 2-----------------------");
                 System.out.println("Player 2: I'm rolling dice!");
                 Player2.Roll();
