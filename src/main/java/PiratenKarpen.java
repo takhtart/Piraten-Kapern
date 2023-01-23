@@ -20,7 +20,7 @@ public class PiratenKarpen {
             game.PlayGame();
         }
         
-        //Debug Checks Number Of Games Played
+        //Debug Checks Number Of Games Played/Won/Ties
         logger.debug("Number Of Games Played In Total: " + game.getGamesPlayed());
         logger.debug("Player 1 Games Won: " + game.getP1Wins());
         logger.debug("Player 2 Games Won: " + game.getP2Wins());

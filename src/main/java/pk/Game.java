@@ -2,6 +2,7 @@ package pk;
 
 public class Game {
 
+    //Initializes Player Tracking Variables
     private float GamesPlayed = 0;
     private int P1Wins = 0;
     private int P2Wins = 0;
@@ -9,6 +10,7 @@ public class Game {
     
     
 
+    //Getter Functions
     public int getP1Wins(){
         return P1Wins;
     }
@@ -23,12 +25,15 @@ public class Game {
     }
 
 
+    //Simulates Game
     public void PlayGame(){
         boolean GameOver = false;
 
         System.out.println("Welcome to Piraten Karpen Simulator!\n");
         Player Player1 = new Player();
+        Player1.SetStrat("MAXCOMBO");
         Player Player2 = new Player();
+        Player2.SetStrat("RANDOM");
 
         while (GameOver == false){
             //Player 1 Turn

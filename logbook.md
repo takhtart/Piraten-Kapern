@@ -48,3 +48,12 @@ Sort Dice Array Alphabetically
 
 #Jan 22,2023
 Finished Calculating Score taking into account for Combos
+Fixed Check Combo Bug
+Created Strategy Where Combos Are Maximized (While Adding A Bit Of Prioritization for Diamond And Gold)
+Updated Scoring To Support Full Chest Rule
+Updated MaxCombos Strategy To Consider Rerolling If The Availible Dice to Roll Is Odd
+Updated MaxCombos Strategy To Prioritize Full Chest First
+
+#Jan 23, 2023
+Finished MaxCombos Strategy
+Added Strategy Setter Function In Player Class (Default Strategy Is Random Unless SetStrat Function Is Called)
