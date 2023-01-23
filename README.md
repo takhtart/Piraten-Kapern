@@ -41,6 +41,6 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F08 | Game Ends When A Player Reaches Or Exceeds 6000 Points | D | 01/16/23 | 01/16/23 |
 | x   | F09 | Updated Scoring System To Support Combos | D | 01/20/23 | 01/22/23 |
 | x   | F10 | New Player Strategy (Maximize Combos) | D | 01/22/23 | 01/23/23 |
-| x   | F11 | Command Line - Choose What Strategy Players Use During The Game | S | 01/23/23 | 01/23/23 |
+| x   | F11 | Command Line - Choose What Strategy Players Use During The Game | D | 01/23/23 | 01/23/23 |
 | ... | ... | ... |
 
