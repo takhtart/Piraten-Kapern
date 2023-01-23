@@ -13,14 +13,14 @@ public class Player {
     private int Score = 0;
     private int Skulls = 0;
     private ArrayList<String> CurrentRoll = new ArrayList<String>();
-    private String ReRollStrat = "RANDOM";
+    private String ReRollStrat = "random";
 
     //Initializes Strategy Class
     Strategy Strategy = new Strategy();
 
     //Sets Strategy If Incorrect Strategy Is Inputted, Will Default To Constructor Default
     public void SetStrat(String Strat){
-        if (Strat == "RANDOM" || Strat == "MAXCOMBO"){
+        if (Strat == "random" || Strat == "combo"){
             ReRollStrat = Strat;
             System.out.println("Strategy Has Been Set To: " + ReRollStrat);
         }
@@ -103,10 +103,10 @@ public class Player {
                 int DieSelect = 0;
 
                 //If Statements To Check Which Strategy The Player Should Use
-                if (ReRollStrat == "MAXCOMBO"){
+                if (ReRollStrat == "combo"){
                     DieSelect = Strategy.MaxCombos(ReRoll, Skulls);
                 }
-                else if (ReRollStrat == "RANDOM"){
+                else if (ReRollStrat == "random"){
                     DieSelect = Strategy.Random(ReRoll, Skulls);
                 }
 

@@ -7,18 +7,12 @@ public class PiratenKarpen {
 
     public static void main(String[] args) {
 
-        //Number of Games That Will Be Played
-        int NumberOfGames = 42;
-
         //Creates A New Game Instance
         Game game = new Game();
 
-
         //For Loop That Simulates Multiple Games
-        for (int i = 0; i < NumberOfGames; i++) {
             //Starts Game
-            game.PlayGame();
-        }
+            game.PlayGame(42,"random", "combo");
         
         //Debug Checks Number Of Games Played/Won/Ties
         logger.debug("Number Of Games Played In Total: " + game.getGamesPlayed());

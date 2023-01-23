@@ -26,71 +26,75 @@ public class Game {
 
 
     //Simulates Game
-    public void PlayGame(){
-        boolean GameOver = false;
+    public void PlayGame(int NumberOfGames,String Player1Strat, String Player2Strat){
 
-        System.out.println("Welcome to Piraten Karpen Simulator!\n");
-        Player Player1 = new Player();
-        Player1.SetStrat("MAXCOMBO");
-        Player Player2 = new Player();
-        Player2.SetStrat("RANDOM");
+        //For Loop That Simulates Multiple Games
+        for (int i = 0; i < NumberOfGames; i++) {
+            
+        
+            boolean GameOver = false;
 
-        while (GameOver == false){
-            //Player 1 Turn
-            System.out.println("-----------------------Player 1-----------------------");
-            System.out.println("Player 1: I'm rolling dice!");
-            Player1.Roll();
-            System.out.println("Player 1 Rolled: " + Player1.getroll());
-            Player1.ReRoll();
-            System.out.println("Player 1 Final Roll: " + Player1.getroll());
-            System.out.println("Player 1 Score: " + Player1.getscore() + "\n");
-            System.out.println("------------------------------------------------------\n");
+            System.out.println("Welcome to Piraten Karpen Simulator!\n");
+            Player Player1 = new Player();
+            Player1.SetStrat(Player1Strat);
+            Player Player2 = new Player();
+            Player2.SetStrat(Player2Strat);
 
-            //Player 2 Turn
-            System.out.println("-----------------------Player 2-----------------------");
-            System.out.println("Player 2: I'm rolling dice!");
-            Player2.Roll();
-            System.out.println("Player 2 Rolled: " + Player2.getroll());
-            Player2.ReRoll();
+            while (GameOver == false){
+                //Player 1 Turn
+                System.out.println("-----------------------Player 1-----------------------");
+                System.out.println("Player 1: I'm rolling dice!");
+                Player1.Roll();
+                System.out.println("Player 1 Rolled: " + Player1.getroll());
+                Player1.ReRoll();
+                System.out.println("Player 1 Final Roll: " + Player1.getroll());
+                System.out.println("Player 1 Score: " + Player1.getscore() + "\n");
+                System.out.println("------------------------------------------------------\n");
 
-            System.out.println("Player 2 Final Roll: " + Player2.getroll());
-            System.out.println("Player 2 Score: " + Player2.getscore() + "\n");
-            System.out.println("------------------------------------------------------\n");
+                //Player 2 Turn
+                System.out.println("-----------------------Player 2-----------------------");
+                System.out.println("Player 2: I'm rolling dice!");
+                Player2.Roll();
+                System.out.println("Player 2 Rolled: " + Player2.getroll());
+                Player2.ReRoll();
 
-             //Checks Which Player Wins The Game
-            if (Player1.getscore() >= 6000 || Player2.getscore() >= 6000){
-                if (Player1.getscore() > Player2.getscore()){
-                    P1Wins += 1;
-                    System.out.println("Player 1 Wins!");
-                    System.out.println("-----------------------Final Scores-----------------------");
-                    System.out.println("Player 1 Final Score: " + Player1.getscore() + "\n");
-                    System.out.println("Player 2 Final Score: " + Player2.getscore());
-                    System.out.println("----------------------------------------------------------\n");
+                System.out.println("Player 2 Final Roll: " + Player2.getroll());
+                System.out.println("Player 2 Score: " + Player2.getscore() + "\n");
+                System.out.println("------------------------------------------------------\n");
 
-                    GamesPlayed += 1;
-                    GameOver = true;
+                //Checks Which Player Wins The Game
+                if (Player1.getscore() >= 6000 || Player2.getscore() >= 6000){
+                    if (Player1.getscore() > Player2.getscore()){
+                        P1Wins += 1;
+                        System.out.println("Player 1 Wins!");
+                        System.out.println("-----------------------Final Scores-----------------------");
+                        System.out.println("Player 1 Final Score: " + Player1.getscore() + "\n");
+                        System.out.println("Player 2 Final Score: " + Player2.getscore());
+                        System.out.println("----------------------------------------------------------\n");
+
+                        GamesPlayed += 1;
+                        GameOver = true;
+                    }
+                    else if (Player2.getscore() > Player1.getscore()) {
+                        P2Wins += 1;
+                        System.out.println("Player 2 Wins!");
+                        System.out.println("-----------------------Final Scores-----------------------");
+                        System.out.println("Player 1 Final Score: " + Player1.getscore() + "\n");
+                        System.out.println("Player 2 Final Score: " + Player2.getscore());
+                        System.out.println("----------------------------------------------------------\n");
+                        GamesPlayed += 1;
+                        GameOver = true;
+                    }
+                    else {
+                        System.out.println("Tied! Playing Another Round");
+                        Ties += 1;
+                        
+                    } 
                 }
-                else if (Player2.getscore() > Player1.getscore()) {
-                    P2Wins += 1;
-                    System.out.println("Player 2 Wins!");
-                    System.out.println("-----------------------Final Scores-----------------------");
-                    System.out.println("Player 1 Final Score: " + Player1.getscore() + "\n");
-                    System.out.println("Player 2 Final Score: " + Player2.getscore());
-                    System.out.println("----------------------------------------------------------\n");
-                    GamesPlayed += 1;
-                    GameOver = true;
-                }
-                else {
-                    System.out.println("Tied! Playing Another Round");
-                    Ties += 1;
-                    
-                } 
             }
-       }
 
+        }
 
     }
-
-    
     
 }
