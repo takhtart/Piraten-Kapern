@@ -44,3 +44,7 @@ Added log4j to dependancies
 Removed tracker variables from main class (now directly pulled from game class)
 Created Strategy Class
 Moved Random Strategy to Strategy.java
+Sort Dice Array Alphabetically
+
+#Jan 22,2023
+Finished Calculating Score taking into account for Combos
