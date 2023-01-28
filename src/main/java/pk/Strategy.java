@@ -61,6 +61,7 @@ public class Strategy {
             } 
         }
 
+        //Triggers Sea Battle Strategy If It Is Drawn
         if (Card.equals("Sea Battle (2)") || Card.equals("Sea Battle (3)") || Card.equals("Sea Battle (4)")){
             DieSelect = SeaBattle(ReRoll, Skulls, Card);
             return DieSelect;
