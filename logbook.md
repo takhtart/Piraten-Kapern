@@ -61,3 +61,15 @@ Added Command Line Arguments
 Made All String Comparisons to use .equals() rather than ==
 Updated Scoring System To Give 0 Points If 3 Skulls Are Rolled
 Updated Logic Of Currently Implemented Strategies to Accomodate The Risk Of Rolling 3 Skulls
+
+#Jan 25, 2023
+Simplified The Args check Function in PiratenKarpen.java
+Set Default Strategy Of Both Players To "combo" in PiratenKarpen.java
+
+#Jan 28,2023
+Updated ReadMe (New Business Logic Based Features)
+Created Cards Class
+Cards Class Generated Deck (29 nop and 3 unique Sea Battle Cards (2 of each card in Deck))
+Draw Card Function Draws Card From Top Of Deck And Puts The Card At The Bottom Once Used (Manipulates Array)
+Print Deck Getter Function Added For Debug Purposes
+Scoring System Updated To Give Sea Battle Bonus If Player Wins Sea Battle And Rolls the Minimum Amount of Sabers Needed as Indicated By The Card.
