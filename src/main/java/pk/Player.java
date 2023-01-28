@@ -15,6 +15,7 @@ public class Player {
     private ArrayList<String> CurrentRoll = new ArrayList<String>();
     private String ReRollStrat = "combo";
     private String Card = "";
+    private int DiceRolled = 0;
 
     //Initializes Strategy Class
     Strategy Strategy = new Strategy();
@@ -43,12 +44,17 @@ public class Player {
     public String getStrat(){
         return ReRollStrat;
     }
+    public int getRolls(){
+        return DiceRolled;
+    }
 
     //Initial Roll Function
     public void Roll(String PulledCard){
         //Initialize Dice And New ArrayList To Hold The Roll
         ArrayList<String> Roll = new ArrayList<String>();
         Card = PulledCard;
+        DiceRolled = 0;
+
         Dice myDice = new Dice();
 
         //Adds 8 Dice With Randomly Generated Values
@@ -81,7 +87,7 @@ public class Player {
             if (Skulls >= 3 || EndTurn == true){
 
                 if (Skulls >= 3){
-                    System.out.println("3 Or More Skulls Have Been Rolled. Ending Turn.\n");
+                    System.out.println("3 Or More Skulls Have Been Rolled. Turn Ends With No Points.\n");
                     logger.debug("Skulls Ending Turn");
                 }
                 else{
@@ -90,13 +96,15 @@ public class Player {
                 }
                 
                 //Generates Combo Array Using Roll
-                int[] Combo = Strategy.CheckCombo(ReRoll);
+                int[] Combo = Strategy.CheckCombo(ReRoll,Card);
 
                 //Debug Statement, Prints Combo Array
-                logger.debug(Arrays.toString(Combo));
+                logger.debug("Calculated Combo: " + Arrays.toString(Combo));
 
+                int ScoreCalc = Strategy.CalcScore(Combo,Card);
                 //Calculate And Add Score
-                Score += Strategy.CalcScore(Combo,Card);
+                System.out.println("Points Awarded This Turn: " + ScoreCalc +"\n");
+                Score += ScoreCalc;
 
                 //Reset Skull Value
                 Skulls = 0;
@@ -107,7 +115,6 @@ public class Player {
     
             else {
                 //Current ReRoll Strategy
-                System.out.println("Rerolling!");
                 int DieSelect = 0;
 
                 //If Statements To Check Which Strategy The Player Should Use
@@ -129,6 +136,8 @@ public class Player {
                     //Creates New Die And Generates Roll
                     Dice myDice2 = new Dice();
                     String RerollValue = myDice2.roll().toString();
+                    //Adds 1 To Diced Rolled
+                    DiceRolled += 1;
                     //Updates New Die Roll Replacing the Die Determined by DieSelect
                     ReRoll.set(DieSelect, RerollValue);
                     //Checks if Reroll is Skull and moves it to the back of the array
@@ -138,7 +147,7 @@ public class Player {
                 }
 
                 //Prints Current Roll (For Clearer View For What Changed)
-                System.out.println(ReRoll + "\n");
+                logger.trace(ReRoll + "\n");
 
                 //Alphabetically Sorts ReRoll 
                 Collections.sort(ReRoll);

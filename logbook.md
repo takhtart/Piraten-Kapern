@@ -73,3 +73,11 @@ Cards Class Generated Deck (29 nop and 3 unique Sea Battle Cards (2 of each card
 Draw Card Function Draws Card From Top Of Deck And Puts The Card At The Bottom Once Used (Manipulates Array)
 Print Deck Getter Function Added For Debug Purposes
 Scoring System Updated To Give Sea Battle Bonus If Player Wins Sea Battle And Rolls the Minimum Amount of Sabers Needed as Indicated By The Card.
+Added Monkey Business Card to Deck in Cards.Java
+Updated Check Combo Function To Take An Additional Parameter Of Card so That has Access to Player's Card Value 
+If Monkey Business Card Is in Play Sets Value Indicating Monkeys to Be Monkeys + Parrots And Sets Parrots To 0 (For Easy Score Calc and Combo Check)
+Switched Display of Player Roll Decision To Trace instead of System.println So It Can Be Called Upon For Debugging Needs
+Monkey Business Card Fully Implemented
+Added Dice Rolled Tracker Value (Will Indicate To User The Amount Of Individual Dice The Player Rolled Before It Reached it's Final Roll) - The Program Will No Longer Display Each Individual Roll As Its Now A Part Of logger.Trace, Only Intial And Final Roll Will Be Displayed
+Updated Output Of Program To Provide Clean And Meaningful Turn Information
+log4j2.xml set to off by default, set to "trace" in log4j2.xml to disable logger messages within program.

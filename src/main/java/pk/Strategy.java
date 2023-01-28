@@ -11,6 +11,8 @@ public class Strategy {
 
     public int Random(ArrayList<String> ReRoll, int Skulls){
         int DieSelect = 0;
+
+        //Randomly Determines If It Wants To End Turn Or Reroll and Risk Getting 3 Skulls
         if (Skulls == 2){
             Random RiskSkull = new Random();
             int DoNotRoll = RiskSkull.nextInt(2);
@@ -36,7 +38,7 @@ public class Strategy {
         //Initialize DieSelection
         int DieSelect = 0;
         //Checks Current Combo Value
-        int[] Combo = CheckCombo(ReRoll);
+        int[] Combo = CheckCombo(ReRoll,Card);
         //Check Number Of Dice That Are Available to Roll
         int Rollable = ReRoll.size() - Skulls;
 
@@ -59,7 +61,7 @@ public class Strategy {
             } 
         }
 
-        if (Card.equals("Sea Battle 2") || Card.equals("Sea Battle 3") || Card.equals("Sea Battle 4")){
+        if (Card.equals("Sea Battle (2)") || Card.equals("Sea Battle (3)") || Card.equals("Sea Battle (4)")){
             DieSelect = SeaBattle(ReRoll, Skulls, Card);
             return DieSelect;
         }
@@ -90,32 +92,63 @@ public class Strategy {
             }
 
             //Debug Statements
-            logger.debug(Arrays.toString(Combo));
-            logger.debug("Highest: " + Highest);
-            logger.debug("Lowest: " + Lowest);
+            logger.trace(Arrays.toString(Combo));
+            logger.trace("Highest: " + Highest);
+            logger.trace("Lowest: " + Lowest);
 
             //ReRolls A Die With A Set Face Based On The Determined Lowest Combo Postion In Combo Array
-            if (LowestPos == 0){
-                DieSelect = ReRoll.indexOf("DIAMOND");
-                logger.debug("ReRolling Diamond: " + DieSelect);
-            }
-            else if (LowestPos == 1){
-                DieSelect = ReRoll.indexOf("GOLD");
-                logger.debug("ReRolling Gold: " + DieSelect);
-            }
-            else if (LowestPos == 2){
-                DieSelect = ReRoll.indexOf("MONKEY");
-                logger.debug("ReRolling Monkey: " + DieSelect);
 
+            if (Card.equals("Monkey Business")){
+                if (LowestPos == 0){
+                    DieSelect = ReRoll.indexOf("DIAMOND");
+                    logger.trace("ReRolling Diamond: " + DieSelect);
+                }
+                else if (LowestPos == 1){
+                    DieSelect = ReRoll.indexOf("GOLD");
+                    logger.trace("ReRolling Gold: " + DieSelect);
+                }
+                else if (LowestPos == 2 || LowestPos == 3){
+
+                    if (ReRoll.indexOf("MONKEY") == -1){
+                        DieSelect = ReRoll.indexOf("PARROT");
+                        logger.trace("ReRolling Parrot: " + DieSelect);
+                    }
+                    else{
+                        DieSelect = ReRoll.indexOf("MONKEY");
+                        logger.trace("ReRolling Monkey: " + DieSelect);
+                    }
+                }
+
+                else{
+                    DieSelect = ReRoll.indexOf("SABER");
+                    logger.trace("ReRolling Saber: " + DieSelect);
+                }
             }
-            else if (LowestPos == 3){
-                DieSelect = ReRoll.indexOf("PARROT");
-                logger.debug("ReRolling Parrot: " + DieSelect);
-            }
+            
             else{
-                DieSelect = ReRoll.indexOf("SABER");
-                logger.debug("ReRolling Saber: " + DieSelect);
+                if (LowestPos == 0){
+                    DieSelect = ReRoll.indexOf("DIAMOND");
+                    logger.trace("ReRolling Diamond: " + DieSelect);
+                }
+                else if (LowestPos == 1){
+                    DieSelect = ReRoll.indexOf("GOLD");
+                    logger.trace("ReRolling Gold: " + DieSelect);
+                }
+                else if (LowestPos == 2){
+                    DieSelect = ReRoll.indexOf("MONKEY");
+                    logger.trace("ReRolling Monkey: " + DieSelect);
+    
+                }
+                else if (LowestPos == 3){
+                    DieSelect = ReRoll.indexOf("PARROT");
+                    logger.trace("ReRolling Parrot: " + DieSelect);
+                }
+                else{
+                    DieSelect = ReRoll.indexOf("SABER");
+                    logger.trace("ReRolling Saber: " + DieSelect);
+                }
             }
+            
 
         }
 
@@ -132,22 +165,48 @@ public class Strategy {
                         }
                     }
 
-                    //If Diamond And Gold Are The Lowest Combo Out Of The 7 Dice Keeps Hand And Ends Turn (DieSelect Value Of 10 Tells Program To End Turn), Otherwise ReRoll The Die
-                    if (LowestPos == 0 || LowestPos == 1){
-                        DieSelect = 10;
-                    }
-                    else if (LowestPos == 2){
-                        DieSelect = ReRoll.indexOf("MONKEY");
-                        logger.debug("ReRolling Monkey: " + DieSelect);
-        
-                    }
-                    else if (LowestPos == 3){
-                        DieSelect = ReRoll.indexOf("PARROT");
-                        logger.debug("ReRolling Parrot: " + DieSelect);
+                    if (Card.equals("Monkey Business")){
+                         //If Diamond And Gold Are The Lowest Combo Out Of The 7 Dice Keeps Hand And Ends Turn (DieSelect Value Of 10 Tells Program To End Turn), Otherwise ReRoll The Die
+                         if (LowestPos == 0 || LowestPos == 1){
+                            DieSelect = 10;
+                        }
+
+                        else if (LowestPos == 2 || LowestPos == 3){
+
+                            if (ReRoll.indexOf("MONKEY") == -1){
+                                DieSelect = ReRoll.indexOf("PARROT");
+                                logger.debug("ReRolling Parrot: " + DieSelect);
+                            }
+                            else{
+                                DieSelect = ReRoll.indexOf("MONKEY");
+                                logger.debug("ReRolling Monkey: " + DieSelect);
+                            }
+                        }
+                        
+                        else{
+                            DieSelect = ReRoll.indexOf("SABER");
+                            logger.debug("ReRolling Saber: " + DieSelect);
+                        }
                     }
                     else{
-                        DieSelect = ReRoll.indexOf("SABER");
-                        logger.debug("ReRolling Saber: " + DieSelect);
+                        //If Diamond And Gold Are The Lowest Combo Out Of The 7 Dice Keeps Hand And Ends Turn (DieSelect Value Of 10 Tells Program To End Turn), Otherwise ReRoll The Die
+                        if (LowestPos == 0 || LowestPos == 1){
+                            DieSelect = 10;
+                        }
+
+                        else if (LowestPos == 2){
+                            DieSelect = ReRoll.indexOf("MONKEY");
+                            logger.debug("ReRolling Monkey: " + DieSelect);
+            
+                        }
+                        else if (LowestPos == 3){
+                            DieSelect = ReRoll.indexOf("PARROT");
+                            logger.debug("ReRolling Parrot: " + DieSelect);
+                        }
+                        else{
+                            DieSelect = ReRoll.indexOf("SABER");
+                            logger.debug("ReRolling Saber: " + DieSelect);
+                        }
                     }
             }
 
@@ -166,7 +225,7 @@ public int SeaBattle(ArrayList<String> ReRoll, int Skulls, String Card){
     //Initialize DieSelection
     int DieSelect = 0;
     //Checks Current Combo Value
-    int[] Combo = CheckCombo(ReRoll);
+    int[] Combo = CheckCombo(ReRoll,Card);
      //Check Highest and Lowest Combo
      int Highest = 0;
      int Lowest = 0;
@@ -191,11 +250,11 @@ public int SeaBattle(ArrayList<String> ReRoll, int Skulls, String Card){
          } 
      }
     
-    if (Card.equals("Sea Battle 2")){
+    if (Card.equals("Sea Battle (2)")){
         SabersNeeded = 2;
     }
 
-    else if (Card.equals("Sea Battle 3")){
+    else if (Card.equals("Sea Battle (3)")){
         SabersNeeded = 3;
     }
 
@@ -224,27 +283,27 @@ public int SeaBattle(ArrayList<String> ReRoll, int Skulls, String Card){
         }
 
         //Debug Statements
-        logger.debug(Arrays.toString(Combo));
-        logger.debug("Highest: " + Highest);
-        logger.debug("Lowest: " + Lowest);
+        logger.trace(Arrays.toString(Combo));
+        logger.trace("Highest: " + Highest);
+        logger.trace("Lowest: " + Lowest);
 
         //ReRolls A Die With A Set Face Based On The Determined Lowest Combo Postion In Combo Array
         if (LowestPos == 0){
             DieSelect = ReRoll.indexOf("DIAMOND");
-            logger.debug("ReRolling Diamond: " + DieSelect);
+            logger.trace("ReRolling Diamond: " + DieSelect);
         }
         else if (LowestPos == 1){
             DieSelect = ReRoll.indexOf("GOLD");
-            logger.debug("ReRolling Gold: " + DieSelect);
+            logger.trace("ReRolling Gold: " + DieSelect);
         }
         else if (LowestPos == 2){
             DieSelect = ReRoll.indexOf("MONKEY");
-            logger.debug("ReRolling Monkey: " + DieSelect);
+            logger.trace("ReRolling Monkey: " + DieSelect);
 
         }
         else if (LowestPos == 3){
             DieSelect = ReRoll.indexOf("PARROT");
-            logger.debug("ReRolling Parrot: " + DieSelect);
+            logger.trace("ReRolling Parrot: " + DieSelect);
         }
 
     }
@@ -254,7 +313,7 @@ return DieSelect;
 
 }
 
-    public int[] CheckCombo(ArrayList<String> Roll){
+    public int[] CheckCombo(ArrayList<String> Roll, String Card){
 
         //Initialized Count Of Dice Values In Roll (Skulls Are Excluded From Combo Check)
         int Diamonds = 0;
@@ -263,22 +322,41 @@ return DieSelect;
         int Parrot = 0;
         int Saber = 0;
 
-        //Counts Dice Values In Roll
-        for (String item :Roll) {
-            if (item.equals("DIAMOND")){
-                Diamonds += 1;
+        //Counts Dice Values In Roll (Now Dependant If Monkey Business Card Was Drawn)
+
+        if (Card.equals("Monkey Business")){
+            for (String item :Roll) {
+                if (item.equals("DIAMOND")){
+                    Diamonds += 1;
+                }
+                else if (item.equals("GOLD")){
+                    Gold += 1;
+                }
+                else if (item.equals("MONKEY") || item.equals("PARROT")){
+                    Monkey += 1;
+                }
+                else if (item.equals("SABER")){
+                    Saber += 1;
+                }
             }
-            else if (item.equals("GOLD")){
-                Gold += 1;
-            }
-            else if (item.equals("MONKEY") ){
-                Monkey += 1;
-            }
-            else if (item.equals("PARROT")){
-                Parrot += 1;
-            }
-            else if (item.equals("SABER")){
-                Saber += 1;
+        }
+        else{
+            for (String item :Roll) {
+                if (item.equals("DIAMOND")){
+                    Diamonds += 1;
+                }
+                else if (item.equals("GOLD")){
+                    Gold += 1;
+                }
+                else if (item.equals("MONKEY") ){
+                    Monkey += 1;
+                }
+                else if (item.equals("PARROT")){
+                    Parrot += 1;
+                }
+                else if (item.equals("SABER")){
+                    Saber += 1;
+                }
             }
         }
 
@@ -300,13 +378,18 @@ return DieSelect;
         int TotalDice = 0;
         int SabersNeeded = 0;
 
+        //Counts Total Amount Of Valuable Dice Using Combo Array (To Check For Full Chest Bonus)
+        for (int i = 0; i < Combo.length; i++) {
+            TotalDice += Combo[i];
+        }
+
         //Checks How Many Sabers Are Needed If Sea Battle Card Was Pulled And Calculate Bonuses
-        if (Card.equals("Sea Battle 2") || Card.equals("Sea Battle 3") || Card.equals("Sea Battle 4")){
-            if (Card.equals("Sea Battle 2")){
+        if (Card.equals("Sea Battle (2)") || Card.equals("Sea Battle (3)") || Card.equals("Sea Battle (4)")){
+            if (Card.equals("Sea Battle (2)")){
                 SabersNeeded = 2;
             }
         
-            else if (Card.equals("Sea Battle 3")){
+            else if (Card.equals("Sea Battle (3)")){
                 SabersNeeded = 3;
             }
         
@@ -314,40 +397,35 @@ return DieSelect;
                 SabersNeeded = 4;
             }
 
-            if (Combo[4] < SabersNeeded){
+            if (Combo[4] < SabersNeeded && TotalDice >= 6){
                 logger.debug("Sabers Needed: " + SabersNeeded);
                 logger.debug("Sabers Had: " + Combo[4]);
-                logger.debug("Lost Battle No Points");
+                System.out.println("Sea Battle Lost! Turn Ends With No Points.\n");
                 Score = 0;
                 return Score; 
             }
             else{
-                if (SabersNeeded == 2){
-                    logger.debug("Sabers Needed: " + SabersNeeded);
-                    logger.debug("Sabers Had: " + Combo[4]);
-                    logger.debug("Saber Bonus Applied - 300");
-                    Score += 300;
-                }
-                else if (SabersNeeded == 3){
-                    logger.debug("Sabers Needed: " + SabersNeeded);
-                    logger.debug("Sabers Had: " + Combo[4]);
-                    logger.debug("Saber Bonus Applied - 500");
-                    Score += 500;
-                }
-                else{
-                    logger.debug("Sabers Needed: " + SabersNeeded);
-                    logger.debug("Sabers Had: " + Combo[4]);
-                    logger.debug("Saber Bonus Applied - 1000");
-                    Score += 1000;
+                if (TotalDice >= 6){
+                    if (SabersNeeded == 2){
+                        logger.debug("Sabers Needed: " + SabersNeeded);
+                        logger.debug("Sabers Had: " + Combo[4]);
+                        System.out.println("Sea Battle Won! 300 Bonus Points Awarded!");
+                        Score += 300;
+                    }
+                    else if (SabersNeeded == 3){
+                        logger.debug("Sabers Needed: " + SabersNeeded);
+                        logger.debug("Sabers Had: " + Combo[4]);
+                        System.out.println("Sea Battle Won! 500 Bonus Points Awarded!");
+                        Score += 500;
+                    }
+                    else{
+                        logger.debug("Sabers Needed: " + SabersNeeded);
+                        logger.debug("Sabers Had: " + Combo[4]);
+                        System.out.println("Sea Battle Won! 1000 Bonus Points Awarded!");
+                        Score += 1000;
+                    }
                 }
             }
-        }
-
-
-
-        //Counts Total Amount Of Valuable Dice Using Combo Array (To Check For Full Chest Bonus)
-        for (int i = 0; i < Combo.length; i++) {
-            TotalDice += Combo[i];
         }
 
         //Returns Score Of Zero if 3 or More Skulls Are Present

@@ -16,7 +16,7 @@
   * To run the packaged delivery:
     * `java -jar target/piraten-karpen-jar-with-dependencies.jar` 
   * To enable trace mode:
-    * `Set <Root level="trace">` in log4j2.xml under `src/main/resources`
+    * `Set <Root level="trace">` in log4j2.xml under `src/main/resources` (If Cloned Repo) or `target/classes` (If Compiled With Maven)
 
 Remark: **We are assuming here you are using a _real_ shell (e.g., anything but PowerShell on Windows)**
 
@@ -43,6 +43,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F10 | New Player Strategy (Maximize Combos) | D | 01/22/23 | 01/23/23 |
 | x   | F11 | Command Line - Choose What Strategy Players Use During The Game | D | 01/23/23 | 01/23/23 |
 | x   | F12 | Create Card Deck That Player Draws Card From Before Rolling Dice | D | 01/28/23 | 01/28/23 |
-| x   | F13 | New Sea Battle Card Strategy And Updates Points Calc if Player Wins Seabattle | D | 01/28/23 | 01/28/23 |
+| x   | F13 | New Sea Battle Card Strategy And Update Points Calc if Player Wins Seabattle | D | 01/28/23 | 01/28/23 |
+| x   | F14 | Add Monkey Business Card And Update Combo Calc if Player Draws Monkey Business Card | D | 01/28/23 | 01/28/23 |
 | ... | ... | ... |
 
