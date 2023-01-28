@@ -42,5 +42,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F09 | Updated Scoring System To Support Combos | D | 01/20/23 | 01/22/23 |
 | x   | F10 | New Player Strategy (Maximize Combos) | D | 01/22/23 | 01/23/23 |
 | x   | F11 | Command Line - Choose What Strategy Players Use During The Game | D | 01/23/23 | 01/23/23 |
+| x   | F12 | Create Card Deck That Player Draws Card From Before Rolling Dice | S | 01/28/23 | |
+| x   | F13 | New Sea Battle Card Strategy | B (F12) | | |
 | ... | ... | ... |
 
