@@ -43,7 +43,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F10 | New Player Strategy (Maximize Combos) | D | 01/22/23 | 01/23/23 |
 | x   | F11 | Command Line - Choose What Strategy Players Use During The Game | D | 01/23/23 | 01/23/23 |
 | x   | F12 | Create Card Deck That Player Draws Card From Before Rolling Dice | D | 01/28/23 | 01/28/23 |
-| x   | F13 | New Sea Battle Card Strategy And Update Points Calc if Player Wins Seabattle | D | 01/28/23 | 01/28/23 |
-| x   | F14 | Add Monkey Business Card And Update Combo Calc if Player Draws Monkey Business Card | D | 01/28/23 | 01/28/23 |
+| x   | F13 | Implement Sea Battle Card and Sea Battle Strategy if Card Is Drawn | D | 01/28/23 | 01/28/23 |
+| x   | F14 | Implement Monkey Business Card | D | 01/28/23 | 01/28/23 |
 | ... | ... | ... |
 
