@@ -1,4 +1,5 @@
 package pk;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 public class Game {
@@ -38,6 +39,9 @@ public class Game {
             boolean GameOver = false;
 
             System.out.println("Welcome to Piraten Karpen Simulator!\n");
+            Cards Cards = new Cards();
+            Cards.GenerateDeck();
+
             Player Player1 = new Player();
             Player Player2 = new Player();
 
@@ -49,8 +53,10 @@ public class Game {
                 //Player 1 Turn
                 logger.debug("Player1 Turn");
                 System.out.println("-----------------------Player 1-----------------------");
+                String Player1Card = Cards.DrawCard();
+                System.out.println("Player 1 Drew: " + Player1Card);
                 System.out.println("Player 1: I'm rolling dice!");
-                Player1.Roll();
+                Player1.Roll(Player1Card);
                 System.out.println("Player 1 Rolled: " + Player1.getroll());
                 Player1.ReRoll();
                 System.out.println("Player 1 Final Roll: " + Player1.getroll());
@@ -60,8 +66,10 @@ public class Game {
                 //Player 2 Turn
                 logger.debug("Player2 Turn");
                 System.out.println("-----------------------Player 2-----------------------");
+                String Player2Card = Cards.DrawCard();
+                System.out.println("Player 2 Drew: " + Player2Card);
                 System.out.println("Player 2: I'm rolling dice!");
-                Player2.Roll();
+                Player2.Roll(Player2Card);
                 System.out.println("Player 2 Rolled: " + Player2.getroll());
                 Player2.ReRoll();
 

@@ -7,6 +7,8 @@ import org.apache.logging.log4j.Logger;
 
 public class Strategy {
     private static final Logger logger = LogManager.getLogger(Strategy.class);
+
+
     public int Random(ArrayList<String> ReRoll, int Skulls){
         int DieSelect = 0;
         if (Skulls == 2){
@@ -29,7 +31,8 @@ public class Strategy {
          return DieSelect;
     }
 
-    public int MaxCombos(ArrayList<String> ReRoll, int Skulls){
+    public int MaxCombos(ArrayList<String> ReRoll, int Skulls, String Card){
+
         //Initialize DieSelection
         int DieSelect = 0;
         //Checks Current Combo Value
@@ -55,12 +58,18 @@ public class Strategy {
                 break;
             } 
         }
-        
-        //Prioritize Full Chest (1st Priority)
-        if (Rollable == 8){
-            DieSelect = 10;
+
+        if (Card.equals("Sea Battle 2") || Card.equals("Sea Battle 3") || Card.equals("Sea Battle 4")){
+            DieSelect = SeaBattle(ReRoll, Skulls, Card);
+            return DieSelect;
         }
 
+        //Prioritize Full Chest (1st Priority)
+        else if (Rollable == 8){
+          DieSelect = 10;
+        }
+
+        //If 2 Or More Skulls Are Present In The Roll End Turn
         else if (Rollable <= 6){
             DieSelect = 10;
         }
@@ -153,6 +162,98 @@ public class Strategy {
    return DieSelect;
 }
 
+public int SeaBattle(ArrayList<String> ReRoll, int Skulls, String Card){
+    //Initialize DieSelection
+    int DieSelect = 0;
+    //Checks Current Combo Value
+    int[] Combo = CheckCombo(ReRoll);
+     //Check Highest and Lowest Combo
+     int Highest = 0;
+     int Lowest = 0;
+     int SabersNeeded = 0;
+
+     //Clones And Sorts Combo Array
+     int[] SortedComboArr = Combo.clone();
+
+     //Sets Saber Val to 0 So it Gets Ignored
+     SortedComboArr[4] = 0;
+
+     Arrays.sort(SortedComboArr);
+
+     //Highest Combo Located At End Of Array
+     Highest = SortedComboArr[SortedComboArr.length-1];
+
+     //Lowest Combo Near Beginning Of The List, However 0's need to be ignored so it will check for the first value greater than 0 and then break the loop to determine lowest combo val
+     for (int i = 0; i < SortedComboArr.length; i++) {
+         if (SortedComboArr[i] > 0){
+             Lowest = SortedComboArr[i];
+             break;
+         } 
+     }
+    
+    if (Card.equals("Sea Battle 2")){
+        SabersNeeded = 2;
+    }
+
+    else if (Card.equals("Sea Battle 3")){
+        SabersNeeded = 3;
+    }
+
+    else{
+        SabersNeeded = 4;
+    }
+
+
+
+    if (Combo[4] >= SabersNeeded){
+        DieSelect = 10;
+        return DieSelect;
+    }
+
+    else{
+
+        //Initialize LowestPos Variable For Locating Position of Lowest Combo in Array
+        int LowestPos = 0;
+
+        //Searches For Face With Lowest Combo (Searching Backwards [Right to Left] to Prioritize Diamonds and Gold) And Ignores Sabers
+        for(int i = 3; i > 0; i--) {
+            if(Combo[i] == Lowest) {
+                    LowestPos = i;
+                    break;
+            }
+        }
+
+        //Debug Statements
+        logger.debug(Arrays.toString(Combo));
+        logger.debug("Highest: " + Highest);
+        logger.debug("Lowest: " + Lowest);
+
+        //ReRolls A Die With A Set Face Based On The Determined Lowest Combo Postion In Combo Array
+        if (LowestPos == 0){
+            DieSelect = ReRoll.indexOf("DIAMOND");
+            logger.debug("ReRolling Diamond: " + DieSelect);
+        }
+        else if (LowestPos == 1){
+            DieSelect = ReRoll.indexOf("GOLD");
+            logger.debug("ReRolling Gold: " + DieSelect);
+        }
+        else if (LowestPos == 2){
+            DieSelect = ReRoll.indexOf("MONKEY");
+            logger.debug("ReRolling Monkey: " + DieSelect);
+
+        }
+        else if (LowestPos == 3){
+            DieSelect = ReRoll.indexOf("PARROT");
+            logger.debug("ReRolling Parrot: " + DieSelect);
+        }
+
+    }
+
+//Returns Selected Die To ReRoll (If A DieSelect Value Of 10 Is Sent Turn Ends)
+return DieSelect;
+
+}
+
     public int[] CheckCombo(ArrayList<String> Roll){
 
         //Initialized Count Of Dice Values In Roll (Skulls Are Excluded From Combo Check)
@@ -192,11 +293,57 @@ public class Strategy {
         return Combo;
     }
 
-    public int CalcScore(int[] Combo){
+    public int CalcScore(int[] Combo, String Card){
 
         //Initialize Variables
         int Score = 0;
         int TotalDice = 0;
+        int SabersNeeded = 0;
+
+        //Checks How Many Sabers Are Needed If Sea Battle Card Was Pulled And Calculate Bonuses
+        if (Card.equals("Sea Battle 2") || Card.equals("Sea Battle 3") || Card.equals("Sea Battle 4")){
+            if (Card.equals("Sea Battle 2")){
+                SabersNeeded = 2;
+            }
+        
+            else if (Card.equals("Sea Battle 3")){
+                SabersNeeded = 3;
+            }
+        
+            else{
+                SabersNeeded = 4;
+            }
+
+            if (Combo[4] < SabersNeeded){
+                logger.debug("Sabers Needed: " + SabersNeeded);
+                logger.debug("Sabers Had: " + Combo[4]);
+                logger.debug("Lost Battle No Points");
+                Score = 0;
+                return Score; 
+            }
+            else{
+                if (SabersNeeded == 2){
+                    logger.debug("Sabers Needed: " + SabersNeeded);
+                    logger.debug("Sabers Had: " + Combo[4]);
+                    logger.debug("Saber Bonus Applied - 300");
+                    Score += 300;
+                }
+                else if (SabersNeeded == 3){
+                    logger.debug("Sabers Needed: " + SabersNeeded);
+                    logger.debug("Sabers Had: " + Combo[4]);
+                    logger.debug("Saber Bonus Applied - 500");
+                    Score += 500;
+                }
+                else{
+                    logger.debug("Sabers Needed: " + SabersNeeded);
+                    logger.debug("Sabers Had: " + Combo[4]);
+                    logger.debug("Saber Bonus Applied - 1000");
+                    Score += 1000;
+                }
+            }
+        }
+
+
 
         //Counts Total Amount Of Valuable Dice Using Combo Array (To Check For Full Chest Bonus)
         for (int i = 0; i < Combo.length; i++) {

@@ -14,6 +14,7 @@ public class Player {
     private int Skulls = 0;
     private ArrayList<String> CurrentRoll = new ArrayList<String>();
     private String ReRollStrat = "combo";
+    private String Card = "";
 
     //Initializes Strategy Class
     Strategy Strategy = new Strategy();
@@ -44,9 +45,10 @@ public class Player {
     }
 
     //Initial Roll Function
-    public void Roll(){
+    public void Roll(String PulledCard){
         //Initialize Dice And New ArrayList To Hold The Roll
         ArrayList<String> Roll = new ArrayList<String>();
+        Card = PulledCard;
         Dice myDice = new Dice();
 
         //Adds 8 Dice With Randomly Generated Values
@@ -94,7 +96,7 @@ public class Player {
                 logger.debug(Arrays.toString(Combo));
 
                 //Calculate And Add Score
-                Score += Strategy.CalcScore(Combo);
+                Score += Strategy.CalcScore(Combo,Card);
 
                 //Reset Skull Value
                 Skulls = 0;
@@ -111,7 +113,7 @@ public class Player {
                 //If Statements To Check Which Strategy The Player Should Use
                 if (ReRollStrat.equals("combo")){
                     logger.debug("Combo Strat Used");
-                    DieSelect = Strategy.MaxCombos(ReRoll, Skulls);
+                    DieSelect = Strategy.MaxCombos(ReRoll, Skulls, Card);
                 }
                 else if (ReRollStrat.equals("random")){
                     logger.debug("Random Strat Used");
