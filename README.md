@@ -1,7 +1,10 @@
-# A1 - Piraten Karpen
+# Piraten Karpen
 
   * Author: Tarnveer Takhtar
   * Email: <takhtart@mcmaster.ca>
+
+# Description
+Simple Text-Based Piraten Karpen Inspired, Automated Boardgame Simulation Between 2 Players.
 
 ## Feature Backlog
 
