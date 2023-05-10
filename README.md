@@ -3,23 +3,6 @@
   * Author: Tarnveer Takhtar
   * Email: <takhtart@mcmaster.ca>
 
-## Build and Execution
-
-  * To clean your working directory:
-    * `mvn clean`
-  * To compile the project:
-    * `mvn compile`
-  * To run the project in development mode:
-    * `mvn -q exec:java` (here, `-q` tells maven to be _quiet_)
-  * To package the project as a turn-key artefact:
-    * `mvn package`
-  * To run the packaged delivery:
-    * `java -jar target/piraten-karpen-jar-with-dependencies.jar` 
-  * To enable trace mode:
-    * `Set <Root level="trace">` in log4j2.xml under `src/main/resources` (If Cloned Repo) or `target/classes` (If Compiled With Maven)
-
-Remark: **We are assuming here you are using a _real_ shell (e.g., anything but PowerShell on Windows)**
-
 ## Feature Backlog
 
  * Status: 
